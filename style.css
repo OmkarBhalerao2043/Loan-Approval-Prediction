@@ -1,0 +1,126 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"]{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.stApp{
+    background: linear-gradient(to right,#EEF5FF,#F9FBFF);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+h1{
+    text-align:center;
+    color:#0F172A;
+    font-weight:700;
+}
+
+h3{
+    color:#2563EB;
+}
+
+/* =========================
+   CARD
+========================= */
+
+div[data-testid="stVerticalBlock"]{
+    border-radius:15px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.stButton>button{
+
+    width:100%;
+    height:55px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.stButton>button:hover{
+
+    background:#1D4ED8;
+
+    transform:scale(1.02);
+
+}
+
+/* =========================
+   METRIC
+========================= */
+
+div[data-testid="metric-container"]{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    box-shadow:0px 5px 15px rgba(0,0,0,.1);
+
+}
+
+/* =========================
+   INPUT BOXES
+========================= */
+
+.stSelectbox,
+.stNumberInput{
+
+    background:white;
+    border-radius:10px;
+
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.stSuccess{
+
+    border-radius:12px;
+
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.stError{
+
+    border-radius:12px;
+
+}
+
+/* Hide Footer */
+
+footer{
+    visibility:hidden;
+}
+
+#MainMenu{
+    visibility:hidden;
+}
