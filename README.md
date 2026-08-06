@@ -1,58 +1,203 @@
-```markdown
-# 🏦 AI-Powered Loan Approval Prediction & Explainability Dashboard
+# 🏦 AI Loan Approval Dashboard
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](YOUR_STREAMLIT_LIVE_URL_HERE)
-[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-An end-to-end Machine Learning web application designed to predict customer loan eligibility, provide transparent AI decision-making using **SHAP**, and deliver a comprehensive model performance dashboard.
+An end-to-end Machine Learning application for predicting loan approval decisions using **Random Forest**, with **Explainable AI (SHAP)**, interactive dashboards, PDF reporting, and model performance monitoring.
 
 ---
 
-## 🌟 Key Features
+## 🌐 Live Demo
 
-*   **Interactive Prediction Dashboard:** Input applicant information (demographics and financials) via a sidebar to instantly calculate approval/rejection probabilities using a real-time gauge chart.
-*   **Local Explainability (SHAP):** Uses **SHAP Force Plots** and **Waterfall Plots** to break down exactly why an individual application was approved or denied.
-*   **Automated PDF Reporting:** Instantly generate and download a professional summary report of the loan application and decision in PDF format.
-*   **Model Performance Suite:** Interactive evaluation tab tracking model metrics (Accuracy, Precision, Recall, F1-Score, ROC-AUC, and Confusion Matrix).
+Try the application here:
 
----
+👉 **https://loan-approval-prediction-using-ai.streamlit.app/**
 
-## 📊 Model Performance & Tech Stack
-
-*   **Core Algorithm:** Random Forest Classifier / Logistic Regression (Optimized via GridSearchCV)
-*   **Evaluation Metrics:**
-    *   **Accuracy:** 85.37%
-    *   **Precision (Class 1):** 85.00%
-    *   **Recall (Class 1):** 96.00%
-    *   **F1-Score:** 90.00%
-*   **Tech Stack:** 
-    *   **Frontend/UI:** Streamlit, Plotly, Matplotlib, Seaborn
-    *   **Machine Learning:** Scikit-Learn, Pandas, NumPy, Joblib
-    *   **Explainability:** SHAP (SHapley Additive exPlanations)
-    *   **Reporting:** FPDF2
+No installation required. Simply open the link, enter the applicant details, and explore the prediction, SHAP explainability, and model performance dashboard.
 
 ---
 
-## 📂 Project Structure
+# Demo
+
+<p align="center">
+
+Loan Prediction → Explainability → Performance Dashboard
+
+</p>
+
+---
+
+# Features
+
+## Loan Prediction
+
+- Predict loan approval instantly
+- Random Forest classifier
+- Approval/Rejection probability
+- Interactive Plotly Gauge
+- Professional UI built with Streamlit
+
+---
+
+## Explainable AI (SHAP)
+
+Understand why the model predicted a decision.
+
+Includes
+
+- SHAP Force Plot
+- SHAP Waterfall Plot
+- Local Feature Importance
+- Individual prediction explanations
+
+This makes the prediction transparent and interview-ready.
+
+---
+
+## PDF Report Generation
+
+Generate a professional report containing
+
+- Applicant Information
+- Loan Details
+- Prediction
+- Approval Probability
+
+Download with one click.
+
+---
+
+## Model Performance Dashboard
+
+Monitor model quality using
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC AUC
+
+Includes
+
+- Confusion Matrix
+- Model Metadata
+- Hyperparameter Information
+
+---
+
+# Machine Learning Pipeline
+
+Dataset
+
+↓
+
+Data Cleaning
+
+↓
+
+Feature Engineering
+
+↓
+
+One-Hot Encoding
+
+↓
+
+Train/Test Split
+
+↓
+
+Feature Scaling
+
+↓
+
+Random Forest Training
+
+↓
+
+Prediction API
+
+↓
+
+SHAP Explainability
+
+↓
+
+Streamlit Dashboard
+
+---
+
+# Feature Engineering
+
+Three engineered features were created.
+
+| Feature | Formula |
+|----------|----------|
+| TotalIncome | ApplicantIncome + CoapplicantIncome |
+| EMI | LoanAmount / Loan_Amount_Term |
+| Income_to_Loan_Ratio | TotalIncome / LoanAmount |
+
+These significantly improve model understanding and predictive capability.
+
+---
+
+# Model Performance
+
+| Metric | Score |
+|---------|--------|
+| Accuracy | **85.37%** |
+| Precision | **85.00%** |
+| Recall | **96.00%** |
+| F1 Score | **90.00%** |
+| ROC-AUC | **0.91** |
+
+---
+
+# Technologies Used
+
+## Machine Learning
+
+- Scikit-Learn
+- Random Forest
+- Logistic Regression
+- GridSearchCV
+- SHAP
+
+## Data
+
+- Pandas
+- NumPy
+
+## Visualization
+
+- Plotly
+- Matplotlib
+- Seaborn
+
+## Web Application
+
+- Streamlit
+- streamlit-shap
+
+## Utilities
+
+- Joblib
+- FPDF2
+
+---
+
+# Project Structure
 
 ```text
-Loan-Approval-Prediction/
+Loan-Approval-Prediction
 │
-├── data/
-│   ├── raw/
-│   └── processed/
+├── data
+│   └── loan.csv
 │
-├── models/
-│   ├── best_model.pkl
+├── models
 │   ├── model.pkl
 │   ├── scaler.pkl
-│   └── features.pkl
+│   ├── features.pkl
+│   └── best_model.pkl
 │
-├── notebooks/
-│   └── data_understanding.ipynb
-│
-├── src/
+├── src
 │   ├── compare_models.py
 │   ├── data_loader.py
 │   ├── evaluate.py
@@ -67,75 +212,155 @@ Loan-Approval-Prediction/
 ├── style.css
 ├── requirements.txt
 └── README.md
-
 ```
 
 ---
 
-## 🚀 How to Run Locally
+# Dashboard Overview
 
-Follow these steps to set up and run the project on your local machine:
+## Prediction Tab
 
-### 1. Clone the Repository
+✔ Applicant Information
+
+✔ Financial Details
+
+✔ Approval Gauge
+
+✔ Prediction Status
+
+✔ PDF Download
+
+---
+
+## Explainability Tab
+
+✔ SHAP Force Plot
+
+✔ SHAP Waterfall Plot
+
+✔ Feature Contribution
+
+✔ Local Explainability
+
+---
+
+## Performance Tab
+
+✔ Accuracy
+
+✔ Precision
+
+✔ Recall
+
+✔ F1 Score
+
+✔ ROC-AUC
+
+✔ Confusion Matrix
+
+✔ Model Metadata
+
+---
+
+# Installation
+
+Clone the repository
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Loan-Approval-Prediction.git](https://github.com/YOUR_USERNAME/Loan-Approval-Prediction.git)
-cd Loan-Approval-Prediction
-
+git clone https://github.com/yourusername/Loan-Approval-Prediction.git
 ```
 
-### 2. Create and Activate a Virtual Environment
+Move into project
+
+```bash
+cd Loan-Approval-Prediction
+```
+
+Create virtual environment
 
 ```bash
 python -m venv .venv
-# On Windows:
-.venv\Scripts\activate
-# On Mac/Linux:
-source .venv/bin/activate
-
 ```
 
-### 3. Install Dependencies
+Activate
+
+Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+Linux / Mac
+
+```bash
+source .venv/bin/activate
+```
+
+Install packages
 
 ```bash
 pip install -r requirements.txt
-
 ```
 
-### 4. Run the Pipeline (Optional)
-
-To retrain the model and regenerate serialized pickles:
+Train the model
 
 ```bash
 python main.py
-
 ```
 
-### 5. Launch the Streamlit App
+Launch application
 
 ```bash
 streamlit run app.py
-
 ```
 
 ---
 
-## 🧠 Explainability Preview
+# Screenshots
 
-The dashboard utilizes **SHAP** to ensure full transparency, complying with modern algorithmic fairness and explainability standards in FinTech.
+Add screenshots here.
 
-* *Waterfall charts* detail additive feature attribution for individual applicants.
-* *Feature importance breakdowns* isolate primary risk factors (e.g., Credit History, Loan Amount, Income-to-Loan Ratios).
+### Dashboard
+
+```
+images/dashboard.png
+```
+
+### Prediction
+
+```
+images/prediction.png
+```
+
+### SHAP Explainability
+
+```
+images/shap1.png
+images/shap2.png
+```
+
+### Performance Dashboard
+
+```
+images/performance.png
+```
+
+
+
+# Author
+
+**OMKAR BHALERAO**
+
+GitHub
+
+https://github.com/OmkarBhalerao2043
+
+LinkedIn
+
+https://www.linkedin.com/in/omkarbhalerao3
 
 ---
 
-## 👤 Author
+# License
 
-**Your Name**
-
-* [GitHub Profile](https://www.google.com/search?q=https://github.com/YOUR_USERNAME)
-* [LinkedIn Profile](https://www.google.com/search?q=https://linkedin.com/in/YOUR_LINKEDIN)
-
-```
-
-```
+MIT License
