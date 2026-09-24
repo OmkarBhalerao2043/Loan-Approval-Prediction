@@ -1,0 +1,1 @@
+{"last_trained": "August 06, 2026", "test_set_size": 123, "algorithm": "Tuned Logistic Regression (C=0.01, liblinear)", "accuracy": "85.37%", "precision": "83.17%", "recall": "98.82%", "f1_score": "90.32%", "roc_auc": "0.84", "confusion_matrix": [[21, 17], [1, 84]]}

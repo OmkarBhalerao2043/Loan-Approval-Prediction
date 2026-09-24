@@ -188,9 +188,6 @@ These significantly improve model understanding and predictive capability.
 ```text
 Loan-Approval-Prediction
 │
-├── data
-│   └── loan.csv
-│
 ├── models
 │   ├── model.pkl
 │   ├── scaler.pkl

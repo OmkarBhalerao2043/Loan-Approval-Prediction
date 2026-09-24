@@ -1,42 +1,21 @@
-import joblib
+# src/predict.py
 import pandas as pd
+import joblib
 
+from src.preprocess import engineer_features
+import config
 
 def predict(sample):
-
-    model = joblib.load("models/model.pkl")
-    scaler = joblib.load("models/scaler.pkl")
-    features = joblib.load("models/features.pkl")
-
+    # Load the unified pipeline
+    pipeline = joblib.load(config.MODEL_PATH)
+    
     df = pd.DataFrame([sample])
 
-    # -----------------------------
-    # Feature Engineering
-    # -----------------------------
+    # 1. Apply the exact same feature engineering used in training
+    df = engineer_features(df)
 
-    df["TotalIncome"] = (
-        df["ApplicantIncome"] +
-        df["CoapplicantIncome"]
-    )
+    # 2. The pipeline handles all imputation, encoding, scaling, and prediction safely
+    prediction = pipeline.predict(df)[0]
+    probability = pipeline.predict_proba(df)[0]
 
-    df["EMI"] = (
-        df["LoanAmount"] /
-        df["Loan_Amount_Term"]
-    )
-
-    df["Income_to_Loan_Ratio"] = (
-        df["TotalIncome"] /
-        df["LoanAmount"]
-    )
-
-    df = pd.get_dummies(df)
-
-    df = df.reindex(columns=features, fill_value=0)
-
-    df_scaled = scaler.transform(df)
-
-    prediction = model.predict(df_scaled)[0]
-
-    probability = model.predict_proba(df_scaled)[0]
-
-    return prediction, probability, df_scaled, df
+    return prediction, probability, df
